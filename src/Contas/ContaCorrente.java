@@ -9,9 +9,15 @@ public class ContaCorrente extends Conta{
 
     @Override
     public void sacar(double valor) {
-        if (saldo < chequeEspecial){
-            chequeEspecial = chequeEspecial - valor;
-        } else if (saldo >= valor) {
+        if (saldo < valor){
+            if ((valor - saldo)> chequeEspecial){
+                System.out.println("O valor desejado para Saque é maior que o Cheque Especial");
+            } else if ((valor - saldo) < chequeEspecial) {
+                valor = valor - saldo;
+                saldo = 0;
+                chequeEspecial = chequeEspecial - valor;
+            }
+        }else {
             saldo = saldo - valor;
         }
     }
@@ -24,6 +30,8 @@ public class ContaCorrente extends Conta{
                 saldo = chequeEspecial - 500;
                 chequeEspecial = chequeEspecial - saldo;
             }
+        }else {
+            saldo = saldo + valor;
         }
     }
 

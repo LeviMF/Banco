@@ -10,8 +10,8 @@ public class CaixaEletronico {
         ContaCorrente itau = new ContaCorrente(airton);
         itau.verificarConta();
 
-        itau.depositar(0);
-        itau.sacar(450);
+        itau.depositar(500);
+        itau.sacar(600);
         itau.olharSaldo();
 
         itau.depositar(460);
