@@ -19,14 +19,9 @@ public abstract class Conta {
         System.out.println(NumeroDaConta + "  " + Agencia);
     }
 
-    public double depositar(double valor){
-        saldo = saldo + valor;
-        return saldo;
-    }
-    public double sacar(double valor){
-        saldo = saldo - valor;
-        return saldo;
-    }
+    public abstract double depositar(double valor);
+    protected abstract double sacar(double valor);
+
     public void olharSaldo(){
         System.out.println("Saldo da conta: " + saldo);
     }
