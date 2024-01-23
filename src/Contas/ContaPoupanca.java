@@ -1,19 +1,22 @@
 package Contas;
 
 public class ContaPoupanca extends Conta{
-    @Override
-    public double depositar(double valor) {
-        saldo = saldo + valor;
-        return saldo;
+    public ContaPoupanca(Contas.Cliente cliente) {
+        super(cliente);
     }
 
     @Override
-    public double sacar(double valor) {
+    public void depositar(double valor) {
+        saldo = saldo + valor;
+    }
+
+    @Override
+    public void sacar(double valor) {
         if (saldo <= 0 || saldo < valor ){
             System.out.println("Você não possui saldo suficiente para efetuar o saque!");
-            return 0;
+            System.out.println(cliente.getNome() + ", Faça um deposito!");
+            return;
         }
         saldo = saldo - valor;
-        return saldo;
     }
 }
